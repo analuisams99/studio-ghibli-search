@@ -5,7 +5,11 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Hello Word</h1>
+        <img
+          id="header-image"
+          src="https://ghibliapi.herokuapp.com/images/logo.svg"
+          alt="logo Studio Ghibli"
+        />
         <Search />
       </>
     );

@@ -1,0 +1,62 @@
+#search-container {
+  display: flex;
+  justify-content: center;
+}
+
+#search-box {
+  border: solid 1px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+}
+
+#search-txt {
+  border: none;
+  float: left; 
+  font-size: 16px;
+  font-style: italic;
+  margin: 10px;
+  margin-right: 0;
+  opacity: 0.6;
+  width: 90%;
+}
+
+#search-icon-box {
+  background: transparent;
+  border: none;
+  margin: auto;
+}
+
+#search-icon {
+  opacity: 0.2;
+  width: 28px;
+}
+
+#search-select {
+  background: #64A4F0;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  margin-left: 10px;
+  padding-left: 5px;
+}
+
+.select-items {
+  background: white;
+}
+
+#not-found {
+  margin: 30px auto;
+  width: 25%;
+
+}
+
+#not-found h2 {
+  font-weight: 400;
+  font-size: 22px;
+  margin-left: 10%;
+}
+
+#not-found img {
+  width: 80%;
+}

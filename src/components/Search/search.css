@@ -4,6 +4,7 @@
 }
 
 #search-box {
+  background: rgb(229, 231, 233, 0.8);
   border: solid 1px;
   border-radius: 8px;
   display: flex;
@@ -12,14 +13,18 @@
 }
 
 #search-txt {
+  background: transparent;
   border: none;
   float: left; 
   font-size: 16px;
   font-style: italic;
   margin: 10px;
   margin-right: 0;
-  opacity: 0.6;
   width: 90%;
+}
+
+#search-txt:focus {
+  outline: 0;
 }
 
 #search-icon-box {
@@ -48,7 +53,6 @@
 #not-found {
   margin: 30px auto;
   width: 25%;
-
 }
 
 #not-found h2 {

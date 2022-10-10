@@ -4,7 +4,7 @@ import './searchFound.css';
 export default class SearchFound extends Component {
   render() {
     const { data, type } = this.props;
-    
+
     switch (type) {
       case 'people':
         return (
@@ -22,7 +22,6 @@ export default class SearchFound extends Component {
             <tbody>
               {data.map((people) => {
                 return (
-                  
                   <tr key={ people.id } className="sf-body-box">
                     <td>{ people.name }</td>
                     <td>{ people.gender }</td>

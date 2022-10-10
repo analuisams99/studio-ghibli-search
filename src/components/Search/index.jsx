@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SearchFound from '../SearchFound';
 import './search.css';
 
 import iconSearch from '../../assets/iconLupa.png';
@@ -6,7 +7,6 @@ import iconSearch from '../../assets/iconLupa.png';
 import { getFilms } from '../../services/filmsAPI';
 import { getPeople } from '../../services/peopleAPI';
 import { getLocations } from '../../services/locationsAPI';
-import SearchFound from '../SearchFound';
 
 export default class Search extends Component {
   constructor() {
@@ -23,7 +23,6 @@ export default class Search extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSearchResult = this.handleSearchResult.bind(this);
-    this.handleHaveAnAnswer = this.handleHaveAnAnswer.bind(this);
     this.handleType = this.handleType.bind(this);
   }
 
@@ -68,12 +67,6 @@ export default class Search extends Component {
     }
   }
 
-  handleHaveAnAnswer(data) {
-    if (!data) {
-      return (<h3>'No results found :('</h3>);
-    }
-  }
-
   handleSearchResult() {
     const { data, valueName, type } = this.state;
 
@@ -90,16 +83,12 @@ export default class Search extends Component {
       default:
         matchedValues = data.films.filter(({title}) => title.toLowerCase().match(regex));
     }
-
     return matchedValues;
   }
 
   render() {
     const matchedValues = this.handleSearchResult();
-    const {
-      type,
-      valueName,
-    } = this.state;
+    const { type, valueName } = this.state;
 
     return (
       <>
@@ -116,8 +105,6 @@ export default class Search extends Component {
             <div id="search-icon-box">
               <img src={ iconSearch } id="search-icon" alt="Buscar" />
             </div>
-
-
           </div>
           <select id="search-select" onChange={ () => this.handleType() }>
             <option value="films" className="select-items">
@@ -132,7 +119,7 @@ export default class Search extends Component {
           </select>
         </div>
 
-        <div>
+        <section>
           { matchedValues.length === 0 ? (
               <div id="not-found">
                 <h2>No results found...</h2>
@@ -141,9 +128,8 @@ export default class Search extends Component {
             ) 
             : <SearchFound data={ matchedValues } type={ type } /> 
           }
-        </div>
-
+        </section>
       </>
     )
-  }
-}
+  };
+};

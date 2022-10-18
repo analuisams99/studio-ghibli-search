@@ -59,3 +59,8 @@ td {
 .sort-icon {
   margin-left: 5px;
 }
+
+tr[title]:hover {
+  cursor: url(../../assets/iconGhibli.png), help;
+  background: white;
+}

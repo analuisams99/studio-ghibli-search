@@ -134,7 +134,11 @@ export default class SearchFound extends Component {
               <tbody>
                 {data.map((film) => {
                   return (
-                    <tr key={ film.id } className="sf-body-box">
+                    <tr
+                      key={ film.id }
+                      className="sf-body-box"
+                      title={ `Description of '${ film.title }': \n - ${ film.description }`}
+                    >
                       <td>
                         <img className="sf-img" src={ film.image } alt={ film.title } />
                       </td>

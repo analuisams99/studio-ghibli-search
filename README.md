@@ -1,41 +1,48 @@
-# frontend-test
-Teste da Clubbi para frontend
+# Studio Ghibli Search
 
-Construa uma SPA (_single page application_) que consuma as [API's dos Estudios Ghibli](https://ghibliapi.herokuapp.com/).
+> -- Projeto desenvolvido para o desafio técnico do processo seletivo da Clubbi
 
+## Site no ar
 
-### Pré-requisitos
+[Clique aqui para acessar](https://studio-ghibli-search-analuisams99.vercel.app/).
 
-Utilizando sua aplicação, devemos conseguir procurar por filmes, atores e locações e esses dados devem ser exibidos em uma forma de boa leitura.
-Crie os filtros que achar necessário e as ordenações que achar mais úteis para cada _endpoint_.
+### Descrição
 
+Com esta aplicação do maravilhoso Studio Ghibli, você poderá procurar e ordenar por filmes, atores e locações. Esses dados estão sendo exibidos em uma forma de boa leitura e compreensão. Faça um bom proveito!!
 
-## Tecnologias
+## hammer_and_wrench Tecnologias
 
-Aqui na __Clubbi__, usamos _React_ com _Redux_ e _Typescript_ no nosso frontend, mas sinta-se à vontade para fazer com o _framework_ que se sentir mais confortável. Pode usar apenas _Javascript_ puro também.
-O que queremos é ver como você escreve seu código e como você pensa. O _framework_ é o menos importante.
+Construí uma SPA (_single page application_) que consumiu as [API's dos Estudios Ghibli](https://ghibliapi.herokuapp.com/).
 
+- _React_
+- _JavaScript_ 
+- _CSS_
 
-## Extras
+## Demonstração da aplicação
 
+![preview](../frontend-test/public/preview.gif)
 
-### Conteinerização da Aplicação
+## Acessando o repositório:
 
-Não é necessário, mas caso consiga, faça um arquivo _docker_ para subir sua aplicação
+1. Clone o repositório
+  `git clone git@github.com:analuisams99/studio-ghibli-search.git `
 
+2. Entre na pasta do repositório que você acabou de clonar:
+  `cd studio-ghibli-search`
 
-- material em ingles sobre docker: https://javascript.plainenglish.io/frontend-development-with-docker-a-simplified-guide-c869f6ee0fe8
+3. Instale as dependências e inicialize o projeto
+  ` npm install`
+  ` npm start `
+  
+> (Caso a aplicação não abra sozinha, você pode acessar no seu browser http://localhost:3000/ )
 
+## yellow_heart Contato
 
-- material em português de docker: https://github.com/gomex/docker-para-desenvolvedores
+[Linkedin](https://www.linkedin.com/in/analuisams99/).
 
-
-### Testes
-Gostamos de testes e os escrevemos para nossos programas. Caso consiga, escreva testes para sua aplicação.
-Para testes tipo _End to end_ recomendamos observar o [cypress](https://www.cypress.io/).
-
-Caso não saiba fazer testes não se preocupe.
-
+Email para contato: analuisams99@gmail.com
 
 ---
-> Bom desenvolvimento!
+> Faça bom proveito!
+
+

@@ -20,10 +20,13 @@ export default class Search extends Component {
       },
       valueName: '',
       type: 'films',
+      sorted: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSearchResult = this.handleSearchResult.bind(this);
     this.handleType = this.handleType.bind(this);
+    this.handleSortedResult = this.handleSortedResult.bind(this);
+    this.handleOnChildChanged = this.handleOnChildChanged.bind(this);
   }
 
   componentDidMount() {
@@ -83,12 +86,54 @@ export default class Search extends Component {
       default:
         matchedValues = data.films.filter(({title}) => title.toLowerCase().match(regex));
     }
+
+    
     return matchedValues;
   }
 
+  handleSortedResult() {
+    const { sorted } = this.state;
+    
+    let result = this.handleSearchResult();
+    
+    switch (sorted) {
+      case 'titleInAlphabeticalOrder':
+        result = result.sort((a, b) => a.title < b.title ? -1 : 1);
+        break;
+      case 'titleInReverseAlphabeticalOrder':
+        result = result.sort((a, b) => a.title < b.title ? 1 : -1);
+        break;
+      case 'peopleNameInAlphabeticalOrder':
+        result = result.sort((a, b) => a.name < b.name ? -1 : 1);
+        break;
+      case 'peopleNameInReverseAlphabeticalOrder':
+        result = result.sort((a, b) => a.name < b.name ? 1 : -1);
+        break;
+      case 'locationInAlphabeticalOrder':
+        result = result.sort((a, b) => a.name < b.name ? -1 : 1);
+        break;
+      case 'locationInReverseAlphabeticalOrder':
+        result = result.sort((a, b) => a.name < b.name ? 1 : -1);
+        break;
+      case 'ascendingSortedScore':
+        result = result.sort((a, b) => +a.rt_score < +b.rt_score ? -1 : 1);
+        break;
+      case 'descendingSortedScore':
+        result = result.sort((a, b) => +a.rt_score < +b.rt_score ? 1 : -1);
+        break;
+      default:
+        return result;
+    }
+    return result;
+  }
+
+  handleOnChildChanged(data) {
+    this.setState({ sorted: data });
+  }
+
   render() {
-    const matchedValues = this.handleSearchResult();
-    const { type, valueName } = this.state;
+    const matchedValues = this.handleSortedResult();
+    const { type, valueName, sorted } = this.state;
 
     return (
       <>
@@ -126,7 +171,12 @@ export default class Search extends Component {
                 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ccaa6b40-c9e1-4fca-a714-e73eb7a0d47d/d998yjs-cbde5b99-d8ed-409d-97a3-e2dc4807c12b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NjYWE2YjQwLWM5ZTEtNGZjYS1hNzE0LWU3M2ViN2EwZDQ3ZFwvZDk5OHlqcy1jYmRlNWI5OS1kOGVkLTQwOWQtOTdhMy1lMmRjNDgwN2MxMmIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.w_ylhhl95jf2l30TmRMSA_R1MUFPE87ixkewFFWO5Zk" alt="Gif de três bichinhos do studio ghibli piscando" />
               </div>
             ) 
-            : <SearchFound data={ matchedValues } type={ type } /> 
+            : <SearchFound
+                data={ matchedValues }
+                type={ type }
+                sorted={ sorted }
+                callbackParent={(data) => this.handleOnChildChanged(data)}
+              /> 
           }
         </section>
       </>

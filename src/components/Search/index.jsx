@@ -4,9 +4,7 @@ import './search.css';
 
 import iconSearch from '../../assets/iconLupa.png';
 
-import { getFilms } from '../../services/filmsAPI';
-import { getPeople } from '../../services/peopleAPI';
-import { getLocations } from '../../services/locationsAPI';
+import { fetchAPI } from '../../services/fetchAPI';
 
 export default class Search extends Component {
   constructor() {
@@ -34,9 +32,9 @@ export default class Search extends Component {
   }
 
   fetchResults = async () => {
-    const filmsFetch = await getFilms();
-    const peopleFetch = await getPeople();
-    const locationsFetch = await getLocations();
+    const filmsFetch = await fetchAPI('films');
+    const peopleFetch = await fetchAPI('people');
+    const locationsFetch = await fetchAPI('locations');
 
     this.setState({
       data: {

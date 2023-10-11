@@ -8,7 +8,7 @@ class App extends React.Component {
         <header>
           <img
             id="header-image"
-            src="https://ghibliapi.herokuapp.com/images/logo.svg"
+            src="https://ghibliapi.vercel.app/images/logo.svg"
             alt="logo Studio Ghibli"
           />
         </header>
